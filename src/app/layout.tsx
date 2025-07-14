@@ -1,6 +1,13 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+
 import "./globals.css";
+
+import { METADATA } from "@/shared/constants";
+import { Header } from "@/shared/components/internal";
+import { Button } from "@/shared/components/external";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -8,9 +15,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Ajuda Aí – Fórum Colaborativo de Tecnologia",
-  description:
-    "Plataforma colaborativa para a comunidade tech tirar dúvidas, compartilhar conhecimento e evoluir juntos. Filtre por tecnologia, região, data e mais. Inspirado no StackOverflow, feito para o Brasil.",
+  title: METADATA.title,
+  description: METADATA.description,
 };
 
 export default function RootLayout({
@@ -20,7 +26,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+      <body className={`${poppins.className} antialiased`}>
+        <NuqsAdapter>
+          <Header />
+          <main className="container mx-auto px-4 py-8">
+            <Link href="/perguntar">
+              <Button type="button" className="w-full mb-8 block md:hidden">
+                Fazer pergunta
+              </Button>
+            </Link>
+            {children}
+          </main>
+        </NuqsAdapter>
+      </body>
     </html>
   );
 }
