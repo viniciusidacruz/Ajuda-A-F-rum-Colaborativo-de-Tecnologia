@@ -6,8 +6,9 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 
 import { METADATA } from "@/shared/constants";
-import { Header } from "@/shared/components/internal";
+import { Providers } from "@/shared/providers";
 import { Button } from "@/shared/components/external";
+import { Header, Sidebar } from "@/shared/components/internal";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,17 +28,24 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${poppins.className} antialiased`}>
-        <NuqsAdapter>
-          <Header />
-          <main className="container mx-auto px-4 py-8">
-            <Link href="/perguntar">
-              <Button type="button" className="w-full mb-8 block md:hidden">
-                Fazer pergunta
-              </Button>
-            </Link>
-            {children}
-          </main>
-        </NuqsAdapter>
+        <Providers>
+          <NuqsAdapter>
+            <Header />
+
+            <div className="mt-8 flex container mx-auto">
+              <Sidebar />
+
+              <main className="px-4">
+                <Link href="/perguntar">
+                  <Button type="button" className="w-full mb-8 block md:hidden">
+                    Fazer pergunta
+                  </Button>
+                </Link>
+                {children}
+              </main>
+            </div>
+          </NuqsAdapter>
+        </Providers>
       </body>
     </html>
   );

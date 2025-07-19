@@ -1,0 +1,40 @@
+{
+  "technologies": [
+    {
+      "id": "1",
+      "name": "React",
+      "count": 10
+    },
+    {
+      "id": "2",
+      "name": "Next.js",
+      "count": 5
+    },
+    {
+      "id": "3",
+      "name": "Tailwind CSS",
+      "count": 3
+    },
+    {
+      "id": "4",
+      "name": "TypeScript",
+      "count": 2
+    },
+    {
+      "id": "5",
+      "name": "JavaScript",
+      "count": 1
+    }
+  ],
+  "regions": [
+    {
+      "id": "1",
+      "name": "Brazil",
+      "count": 10
+    },
+    {
+      "id": "2",
+      "name": "United States"
+    }
+  ]
+}
