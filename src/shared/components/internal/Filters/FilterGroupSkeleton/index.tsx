@@ -2,7 +2,7 @@ import { Skeleton } from "@/shared/components/external";
 
 import { SidebarGroupSkeletonProps } from "./types";
 
-export const SidebarGroupSkeleton = ({
+export const FilterGroupSkeleton = ({
   className = "",
 }: SidebarGroupSkeletonProps) => {
   return (

@@ -1,15 +1,17 @@
+"use client";
+
 import { Button, Checkbox } from "@/shared/components/external";
 import { useFiltersMultiply, useGetTechnologies } from "@/shared/hooks";
 
-import { SidebarGroupSkeleton } from "../SidebarGroupSkeleton";
+import { FilterGroupSkeleton } from "../FilterGroupSkeleton";
 
-export const SidebarTech = () => {
+export const FilterTech = () => {
   const { selectedIds, onChangeFilters, onSubmitFilters } =
     useFiltersMultiply("techs");
   const { data: technologies, isFetching } = useGetTechnologies();
   const hasTechnologies = technologies.length > 0;
 
-  if (isFetching) return <SidebarGroupSkeleton />;
+  if (isFetching) return <FilterGroupSkeleton />;
 
   if (!hasTechnologies && !isFetching) return null;
 

@@ -1,8 +1,10 @@
-import { FILTER_STATUS } from "@/shared/constants";
-import { useFilterReset, useFiltersMultiply } from "@/shared/hooks";
-import { Button, Checkbox } from "@/shared/components/external";
+"use client";
 
-export const SidebarStatus = () => {
+import { FILTER_STATUS } from "@/shared/constants";
+import { Button, Checkbox } from "@/shared/components/external";
+import { useFilterReset, useFiltersMultiply } from "@/shared/hooks";
+
+export const FilterStatus = () => {
   const { selectedIds, onChangeFilters, onSubmitFilters } =
     useFiltersMultiply("status");
   const { resetAllFilters } = useFilterReset();
